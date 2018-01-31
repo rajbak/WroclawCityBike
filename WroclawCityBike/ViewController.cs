@@ -1,11 +1,15 @@
 ﻿using System;
-
+using CoreLocation;
 using UIKit;
+using WroclawCityBike.Helpers;
 
 namespace WroclawCityBike
 {
     public partial class ViewController : UIViewController
     {
+        const double AreaToDisplayInKm = 10;
+        static readonly CLLocationCoordinate2D WroclawCoords = new CLLocationCoordinate2D(51.107883, 17.038538);
+
         protected ViewController(IntPtr handle) : base(handle)
         {
             // Note: this .ctor should not contain any initialization logic.
@@ -14,13 +18,8 @@ namespace WroclawCityBike
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            // Perform any additional setup after loading the view, typically from a nib.
-        }
 
-        public override void DidReceiveMemoryWarning()
-        {
-            base.DidReceiveMemoryWarning();
-            // Release any cached data, images, etc that aren't in use.
+            map.Region = MapHelper.GetRegionToDisplay(AreaToDisplayInKm, WroclawCoords);
         }
     }
 }
