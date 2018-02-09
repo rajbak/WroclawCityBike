@@ -2,13 +2,16 @@
 using CoreLocation;
 using UIKit;
 using WroclawCityBike.Helpers;
+using WroclawCityBike.Core.Services;
+using WroclawCityBike.Models;
 
 namespace WroclawCityBike
 {
     public partial class ViewController : UIViewController
     {
-        const double AreaToDisplayInKm = 10;
-        static readonly CLLocationCoordinate2D WroclawCoords = new CLLocationCoordinate2D(51.107883, 17.038538);
+        private const double AreaToDisplayInKm = 10;
+        private static readonly CLLocationCoordinate2D WroclawCoords = new CLLocationCoordinate2D(51.107883, 17.038538);
+        private readonly IDataService _dataService = new MockDataService();
 
         protected ViewController(IntPtr handle) : base(handle)
         {
@@ -20,6 +23,17 @@ namespace WroclawCityBike
             base.ViewDidLoad();
 
             map.Region = MapHelper.GetRegionToDisplay(AreaToDisplayInKm, WroclawCoords);
+            AddAnnotations();
+
+        }
+
+        private void AddAnnotations()
+        {
+            foreach (var station in _dataService.GetBikeStations())
+            {
+                var annotation = new BikeStationAnnotation(new CLLocationCoordinate2D(station.Latitude, station.Longitude), station.Location);
+                map.AddAnnotation(annotation);
+            }
         }
     }
 }

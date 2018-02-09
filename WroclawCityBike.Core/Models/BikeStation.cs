@@ -1,4 +1,4 @@
-﻿namespace WroclawCityBike.Models
+﻿namespace WroclawCityBike.Core.Models
 {
     public class BikeStation
     {

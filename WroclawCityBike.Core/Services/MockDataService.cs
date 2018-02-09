@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using WroclawCityBike.Models;
+using WroclawCityBike.Core.Models;
 
-namespace WroclawCityBike.Services
+namespace WroclawCityBike.Core.Services
 {
     public class MockDataService : IDataService
     {

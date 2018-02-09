@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WroclawCityBike", "WroclawCityBike\WroclawCityBike.csproj", "{9465D610-9EA8-4F84-97B3-7BE593A85EB3}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "WroclawCityBike.Core", "WroclawCityBike.Core\WroclawCityBike.Core.shproj", "{665EEAD8-7A05-4C9D-A2AF-FCB19C7651B6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|iPhoneSimulator = Debug|iPhoneSimulator

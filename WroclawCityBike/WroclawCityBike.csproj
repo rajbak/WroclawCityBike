@@ -110,7 +110,6 @@
     <Folder Include="Resources\" />
     <Folder Include="Helpers\" />
     <Folder Include="Models\" />
-    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -129,9 +128,8 @@
       <DependentUpon>ViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\MapHelper.cs" />
-    <Compile Include="Models\BikeStation.cs" />
-    <Compile Include="Services\IDataService.cs" />
-    <Compile Include="Services\MockDataService.cs" />
+    <Compile Include="Models\BikeStationAnnotation.cs" />
   </ItemGroup>
+  <Import Project="..\WroclawCityBike.Core\WroclawCityBike.Core.projitems" Label="Shared" Condition="Exists('..\WroclawCityBike.Core\WroclawCityBike.Core.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
