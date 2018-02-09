@@ -6,7 +6,7 @@
     <ProjectGuid>{9465D610-9EA8-4F84-97B3-7BE593A85EB3}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
-    <RootNamespace>WroclawCityBike</RootNamespace>
+    <RootNamespace>WroclawCityBike.iOS</RootNamespace>
     <AssemblyName>WroclawCityBike</AssemblyName>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
   </PropertyGroup>
@@ -110,6 +110,7 @@
     <Folder Include="Resources\" />
     <Folder Include="Helpers\" />
     <Folder Include="Models\" />
+    <Folder Include="ViewControllers\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -123,12 +124,12 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="ViewController.cs" />
-    <Compile Include="ViewController.designer.cs">
-      <DependentUpon>ViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Helpers\MapHelper.cs" />
     <Compile Include="Models\BikeStationAnnotation.cs" />
+    <Compile Include="ViewControllers\ViewController.cs" />
+    <Compile Include="ViewControllers\ViewController.designer.cs">
+      <DependentUpon>ViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="..\WroclawCityBike.Core\WroclawCityBike.Core.projitems" Label="Shared" Condition="Exists('..\WroclawCityBike.Core\WroclawCityBike.Core.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

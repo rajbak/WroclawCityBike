@@ -1,7 +1,7 @@
 ﻿using CoreLocation;
 using MapKit;
 
-namespace WroclawCityBike.Models
+namespace WroclawCityBike.iOS.Models
 {
     public class BikeStationAnnotation : MKAnnotation
     {

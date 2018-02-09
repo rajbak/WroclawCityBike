@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace WroclawCityBike
+namespace WroclawCityBike.iOS
 {
     public class Application
     {

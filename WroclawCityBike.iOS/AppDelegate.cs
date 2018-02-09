@@ -4,7 +4,7 @@ using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 
-namespace WroclawCityBike
+namespace WroclawCityBike.iOS
 {
     [Register("AppDelegate")]
     public class AppDelegate : UIApplicationDelegate

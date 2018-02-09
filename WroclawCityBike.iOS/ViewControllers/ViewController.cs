@@ -1,11 +1,11 @@
 ﻿using System;
 using CoreLocation;
 using UIKit;
-using WroclawCityBike.Helpers;
+using WroclawCityBike.iOS.Helpers;
 using WroclawCityBike.Core.Services;
-using WroclawCityBike.Models;
+using WroclawCityBike.iOS.Models;
 
-namespace WroclawCityBike
+namespace WroclawCityBike.iOS.ViewControllers
 {
     public partial class ViewController : UIViewController
     {

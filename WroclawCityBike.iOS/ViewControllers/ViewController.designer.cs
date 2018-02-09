@@ -8,7 +8,7 @@ using Foundation;
 using System;
 using System.CodeDom.Compiler;
 
-namespace WroclawCityBike
+namespace WroclawCityBike.iOS.ViewControllers
 {
     [Register ("ViewController")]
     partial class ViewController

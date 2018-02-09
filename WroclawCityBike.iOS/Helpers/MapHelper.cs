@@ -2,7 +2,7 @@
 using CoreLocation;
 using MapKit;
 
-namespace WroclawCityBike.Helpers
+namespace WroclawCityBike.iOS.Helpers
 {
     public static class MapHelper
     {
