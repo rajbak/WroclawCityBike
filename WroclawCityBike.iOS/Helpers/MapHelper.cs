@@ -1,12 +1,13 @@
 ﻿using System;
 using CoreLocation;
 using MapKit;
+using WroclawCityBike.Core;
 
 namespace WroclawCityBike.iOS.Helpers
 {
     public static class MapHelper
     {
-        public static readonly CLLocationCoordinate2D WroclawCoordinates = new CLLocationCoordinate2D(51.107883, 17.038538);
+        public static readonly CLLocationCoordinate2D WroclawCoordinates = new CLLocationCoordinate2D(Constants.Wroclaw.Latitiude, Constants.Wroclaw.Longitude);
         private const double DefaultAreaToDisplayInKm = 2;
         private const double EarthRadiusInKm = 6371.0;
         private const double RadiansToDegrees = 180.0;
@@ -20,20 +21,13 @@ namespace WroclawCityBike.iOS.Helpers
 
         public static bool IsInWroclaw(CLLocationCoordinate2D userCoordinates)
         {
-            const double northLatitude = 51.211474;
-            const double southLatitude = 51.042682;
-            const double eastLongitude = 17.176348;
-            const double westLongitude = 16.807380;
+            var isInWroclaw = userCoordinates.Latitude <= Constants.Wroclaw.NorthLatitude &&
+                              userCoordinates.Latitude >= Constants.Wroclaw.SouthLatitude &&
+                              userCoordinates.Longitude <= Constants.Wroclaw.EastLongitude &&
+                              userCoordinates.Longitude >= Constants.Wroclaw.WestLongitude;
 
-            if (userCoordinates.Latitude <= northLatitude &&
-                userCoordinates.Latitude >= southLatitude &&
-                userCoordinates.Longitude <= eastLongitude &&
-                userCoordinates.Longitude >= westLongitude)
-            {
-                return true;
-            }
 
-            return false;
+            return isInWroclaw;
         }
 
         private static double KilometresToLatitudeDegrees(double kms)

@@ -12,6 +12,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\BikeStation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\IDataService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\MockDataService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Constants.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Models\" />
