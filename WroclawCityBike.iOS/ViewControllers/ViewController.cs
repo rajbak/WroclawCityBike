@@ -9,22 +9,37 @@ namespace WroclawCityBike.iOS.ViewControllers
 {
     public partial class ViewController : UIViewController
     {
-        private const double AreaToDisplayInKm = 10;
-        private static readonly CLLocationCoordinate2D WroclawCoords = new CLLocationCoordinate2D(51.107883, 17.038538);
         private readonly IDataService _dataService = new MockDataService();
+        private readonly CLLocationManager _locationManager = new CLLocationManager();
 
-        protected ViewController(IntPtr handle) : base(handle)
-        {
-            // Note: this .ctor should not contain any initialization logic.
-        }
+        protected ViewController(IntPtr handle) : base(handle) { }
 
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
 
-            map.Region = MapHelper.GetRegionToDisplay(AreaToDisplayInKm, WroclawCoords);
+            RequestUserLocation();
+            PrepareMap();
             AddAnnotations();
+        }
 
+        private void PrepareMap()
+        {
+            map.Region = MapHelper.CreateRegion(MapHelper.WroclawCoordinates);
+
+            map.DidUpdateUserLocation += (sender, e) =>
+            {
+                var showUserLocation = map.UserLocation != null && MapHelper.IsInWroclaw(map.UserLocation.Coordinate);
+                var coordinatesToDisplay = showUserLocation ? map.UserLocation.Coordinate : MapHelper.WroclawCoordinates;
+
+                map.Region = MapHelper.CreateRegion(coordinatesToDisplay);
+            };
+        }
+
+        private void RequestUserLocation()
+        {
+            _locationManager.RequestWhenInUseAuthorization();
+            map.ShowsUserLocation = true;
         }
 
         private void AddAnnotations()
