@@ -85,11 +85,7 @@ namespace WroclawCityBike.iOS.ViewControllers
 
         private MKPolylineRenderer OnOverlayRenderer(MKMapView mapView, IMKOverlay overlay)
         {
-            return new MKPolylineRenderer(overlay as MKPolyline)
-            {
-                StrokeColor = UIColor.Blue,
-                LineWidth = 4.0f
-            };
+            return MapHelper.GetPolylineRenderer(overlay);
         }
 
         private void OnDirectionsCalculated(MKDirectionsResponse response, NSError error)

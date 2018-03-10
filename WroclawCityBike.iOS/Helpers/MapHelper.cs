@@ -1,6 +1,7 @@
 ﻿using System;
 using CoreLocation;
 using MapKit;
+using UIKit;
 using WroclawCityBike.Core;
 
 namespace WroclawCityBike.iOS.Helpers
@@ -17,6 +18,15 @@ namespace WroclawCityBike.iOS.Helpers
             MKCoordinateSpan span = new MKCoordinateSpan(KilometresToLatitudeDegrees(areaToDisplayInKm), KilometresToLongitudeDegrees(areaToDisplayInKm, coords.Latitude));
 
             return new MKCoordinateRegion(coords, span);
+        }
+
+        public static MKPolylineRenderer GetPolylineRenderer(IMKOverlay overlay)
+        {
+            return new MKPolylineRenderer(overlay as MKPolyline)
+            {
+                StrokeColor = UIColor.Blue,
+                LineWidth = 4.0f
+            };
         }
 
         public static bool IsInWroclaw(CLLocationCoordinate2D userCoordinates)
